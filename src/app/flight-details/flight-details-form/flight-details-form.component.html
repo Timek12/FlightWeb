@@ -1,1 +1,79 @@
-<p>flight-details-form works!</p>
+<form #form="ngForm" (submit)="onSubmit(form)"
+[class.submitted]="service.formSubmitted" novalidate autocomplete="off">
+  <div class="mb-3">
+    <label>Flight Number</label>
+    <input type="hidden" name="id" [(ngModel)]="service.formData.id" />
+    <input
+      class="form-control form-control-lg"
+      placeholder="Enter Flight Number"
+      #flightNumber="ngModel"
+      name="flightNumber"
+      required
+      [(ngModel)]="service.formData.flightNumber"
+    />
+  </div>
+  <div class="mb-3">
+    <label>Departure Location</label>
+    <input
+      class="form-control form-control-lg"
+      placeholder="Enter Departure Location"
+      #departureLocation="ngModel"
+      name="departureLocation"
+      required
+      [(ngModel)]="service.formData.departureLocation"
+    />
+  </div>
+  <div class="mb-3">
+    <label>Arrival Location</label>
+    <input
+      class="form-control form-control-lg"
+      placeholder="Enter Arrival Location"
+      #arrivalLocation="ngModel"
+      name="arrivalLocation"
+      required
+      [(ngModel)]="service.formData.arrivalLocation"
+    />
+  </div>
+  <div class="mb-3">
+    <label>Departure Date</label>
+    <input
+      type="date"
+      class="form-control form-control-lg"
+      #departureDate="ngModel"
+      name="departureDate"
+      required
+      [(ngModel)]="service.formData.departureDate"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label>Plane Id</label>
+    <input
+      type="number"
+      class="form-control form-control-lg"
+      #departureDate="ngModel"
+      name="planeId"
+      required
+      [(ngModel)]="service.formData.planeId"
+    />
+  </div>
+  
+  <div class="mb-3">
+    <label>Plane Model</label>
+    <input
+      class="form-control form-control-lg"
+      placeholder="Enter Plane Model"
+    />
+  </div>
+  
+  <div class="mb-3">
+    <label>Plane Type</label>
+    <input
+      class="form-control form-control-lg"
+      placeholder="Enter Plane Type"
+    />
+  </div>
+  <div class="d-grid">
+    <button class="btn btn-lg btn-success" type="submit">Submit</button>
+  </div>
+</form>

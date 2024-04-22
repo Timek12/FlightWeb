@@ -8,6 +8,28 @@
         <app-flight-details-form/>
     </div>
     <div class="col-6">
-        list flight details
+        <ul class="list-gorup">
+            <li *ngFor="let flight of service.list" class="list-group-item d-flex justify-content-between align-items-start mb-2 border px-4 py-3 rounded-3">
+                <div class="flex-grow-1 mouse-hover"
+                (click)="populateForm(flight)">
+                    <div class="fw-bold">
+                        {{flight.flightNumber}}
+                    </div>
+                    <div class="fw-bold">
+                        From: {{flight.arrivalLocation}}
+                    </div>
+                    <div class="fw-bold">
+                        To: {{flight.departureLocation}}
+                    </div>
+                    <div class="fw-bold">
+                        Date: {{flight.departureDate | date:'yyyy-MM-dd'}}
+                    </div>
+                </div>
+                <span class="text-secondary">
+                    <i class="fa-solid fa-trash-can fa-lg mouse-hover"
+                    (click)="onDelete(flight.id)"></i>
+                </span>
+            </li>
+        </ul>
     </div>
 </div>
